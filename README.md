@@ -205,47 +205,6 @@ torchrun --nnodes=1 --nproc_per_node=1 \
   --svd_llm_ckpt ./AFM_models/llama2_7b_cr005/ckpt
 ```
 
-## 重要说明
-
-### 1. 这是研究型代码，不是开箱即用的工业项目
-
-仓库里存在一些为本地实验环境写死的内容，例如：
-
-- 脚本中的绝对路径
-- 多卡 `CUDA_VISIBLE_DEVICES` 配置
-- 对本地数据目录和模型目录的假设
-
-上传到 GitHub 前，建议你继续根据自己的环境清理这些路径。
-
-### 2. 部分脚本依赖上游 SpinQuant / PTQ 代码结构
-
-这是当前仓库最需要提前说明的一点。
-
-- 根目录的 `AAFM_LLaMA_Per_Layer_fixed_greedy.py` 会主动寻找相邻目录中的 SpinQuant 工程
-- PTQ 评测脚本中使用了 `from ptq import ...`
-- 这意味着当前仓库更像是在上游量化框架基础上的实验扩展，而不是完全独立的一份代码
-
-如果你要让其他人复现，建议在仓库说明中明确以下两种使用方式：
-
-1. 将本仓库作为你本地 SpinQuant 代码树中的一个实验分支使用
-2. 或者手动补齐上游 `ptq.py`、相关模型定义与依赖目录
-
-### 3. 数据集与环境变量
-
-代码中默认或推荐使用以下数据源：
-
-- WikiText-2
-- MMLU
-- commonsense 任务集合，如 `arc_easy`、`hellaswag`、`piqa`、`boolq` 等
-- `COLA` 生成的 `calibration_samples.json`
-
-部分路径支持通过环境变量指定，例如：
-
-- `MMLU_DATA_DIR`
-- `COLA_CALIBRATION_PATH`
-- `HF_HOME`
-- `HF_DATASETS_CACHE`
-
 ## CoLA 子模块
 
 仓库中包含一个相对独立的 CoLA 实现，位于 [`channel-based mixed-precision quantization/cola`](./channel-based%20mixed-precision%20quantization/cola)。
