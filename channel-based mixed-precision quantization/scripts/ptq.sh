@@ -1,0 +1,24 @@
+CUDA_VISIBLE_DEVICES=5 torchrun --master-port=29778 --nnodes=1 --nproc_per_node=1 ./ptq.py \
+--input_model /data/huggingface_model/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9 \
+--do_train False \
+--do_eval True \
+--per_device_eval_batch_size 32 \
+--model_max_length 2048 \
+--fp16 False \
+--bf16 True \
+--save_safetensors False \
+--w_bits 3 \
+--a_bits 8 \
+--k_bits 16 \
+--v_bits 16 \
+--w_clip \
+--a_asym \
+--k_asym \
+--v_asym \
+--k_groupsize 128 \
+--v_groupsize 128 \
+--w_groupsize 32 \
+--a_groupsize 32 \
+--rotate \
+--optimized_rotation_path /data1/ljs/SpinQuant_split_spin_middle_activation/llama_rotation_split_AFM/5%_q_k_Layerwise_groupsize32_lr_1_5.bin \
+--svd_llm_ckpt  /data1/ljs/SpinQuant_split_spin_middle_activation/AFM_models/0.05_q_k_Layerwise 

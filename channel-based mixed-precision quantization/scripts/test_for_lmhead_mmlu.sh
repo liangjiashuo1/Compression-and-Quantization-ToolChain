@@ -1,0 +1,126 @@
+CUDA_VISIBLE_DEVICES=6 torchrun --master-port=31729 --nnodes=1 --nproc_per_node=1 ./ptq_AFM_LM_eval_mmlu5shot.py \
+--input_model /data/huggingface_model/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9 \
+--do_train False \
+--do_eval True \
+--per_device_eval_batch_size 32 \
+--model_max_length 2048 \
+--fp16 False \
+--bf16 True \
+--save_safetensors False \
+--w_bits 3 \
+--a_bits 8 \
+--k_bits 16 \
+--v_bits 16 \
+--w_clip \
+--a_asym \
+--k_asym \
+--v_asym \
+--k_groupsize 128 \
+--v_groupsize 128 \
+--w_groupsize 128 \
+--a_groupsize 128 \
+--lm_head_w_bits 8 \
+--lm_head_w_groupsize 0 \
+--embed_w_bits 8 \
+--embed_w_groupsize 0 \
+--percdamp 0.1 \
+--rotate \
+--nsamples 1024 \
+--optimized_rotation_path /data1/ljs/SpinQuant_split_spin_middle_activation/llama_rotation_split_AFM/5%_q_k_Layerwise_groupsize32_lr_1_5.bin \
+--svd_llm_ckpt /data1/ljs/End_to_end_onlyqk/AFM_models/8%/8%ckpt
+
+CUDA_VISIBLE_DEVICES=6 torchrun --master-port=31729 --nnodes=1 --nproc_per_node=1 ./ptq_AFM_LM_eval_mmlu5shot.py \
+--input_model /data/huggingface_model/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9 \
+--do_train False \
+--do_eval True \
+--per_device_eval_batch_size 32 \
+--model_max_length 2048 \
+--fp16 False \
+--bf16 True \
+--save_safetensors False \
+--w_bits 3 \
+--a_bits 8 \
+--k_bits 16 \
+--v_bits 16 \
+--w_clip \
+--a_asym \
+--k_asym \
+--v_asym \
+--k_groupsize 128 \
+--v_groupsize 128 \
+--w_groupsize 128 \
+--a_groupsize 128 \
+--lm_head_w_bits 4 \
+--lm_head_w_groupsize 0 \
+--embed_w_bits 4 \
+--embed_w_groupsize 0 \
+--percdamp 0.1 \
+--rotate \
+--nsamples 1024 \
+--optimized_rotation_path /data1/ljs/SpinQuant_split_spin_middle_activation/llama_rotation_split_AFM/5%_q_k_Layerwise_groupsize32_lr_1_5.bin \
+--svd_llm_ckpt /data1/ljs/End_to_end_onlyqk/AFM_models/8%/8%ckpt
+
+CUDA_VISIBLE_DEVICES=6 torchrun --master-port=31729 --nnodes=1 --nproc_per_node=1 ./ptq_AFM_LM_eval_mmlu5shot.py \
+--input_model /data/huggingface_model/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9 \
+--do_train False \
+--do_eval True \
+--per_device_eval_batch_size 32 \
+--model_max_length 2048 \
+--fp16 False \
+--bf16 True \
+--save_safetensors False \
+--w_bits 3 \
+--a_bits 8 \
+--k_bits 16 \
+--v_bits 16 \
+--w_clip \
+--a_asym \
+--k_asym \
+--v_asym \
+--k_groupsize 128 \
+--v_groupsize 128 \
+--w_groupsize -1 \
+--a_groupsize -1 \
+--lm_head_w_bits 8 \
+--lm_head_w_groupsize 0 \
+--embed_w_bits 8 \
+--embed_w_groupsize 0 \
+--percdamp 0.1 \
+--rotate \
+--nsamples 1024 \
+--optimized_rotation_path /data1/ljs/SpinQuant_split_spin_middle_activation/llama_rotation_split_AFM/5%_q_k_Layerwise_groupsize32_lr_1_5.bin \
+--svd_llm_ckpt /data1/ljs/End_to_end_onlyqk/AFM_models/8%/8%ckpt
+
+CUDA_VISIBLE_DEVICES=6 torchrun --master-port=31729 --nnodes=1 --nproc_per_node=1 ./ptq_AFM_LM_eval_mmlu5shot.py \
+--input_model /data/huggingface_model/models--meta-llama--Llama-2-7b-hf/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9 \
+--do_train False \
+--do_eval True \
+--per_device_eval_batch_size 32 \
+--model_max_length 2048 \
+--fp16 False \
+--bf16 True \
+--save_safetensors False \
+--w_bits 3 \
+--a_bits 8 \
+--k_bits 16 \
+--v_bits 16 \
+--w_clip \
+--a_asym \
+--k_asym \
+--v_asym \
+--k_groupsize 128 \
+--v_groupsize 128 \
+--w_groupsize -1 \
+--a_groupsize -1 \
+--lm_head_w_bits 4 \
+--lm_head_w_groupsize 0 \
+--embed_w_bits 4 \
+--embed_w_groupsize 0 \
+--percdamp 0.1 \
+--rotate \
+--nsamples 1024 \
+--optimized_rotation_path /data1/ljs/SpinQuant_split_spin_middle_activation/llama_rotation_split_AFM/5%_q_k_Layerwise_groupsize32_lr_1_5.bin \
+--svd_llm_ckpt /data1/ljs/End_to_end_onlyqk/AFM_models/8%/8%ckpt
+
+
+
